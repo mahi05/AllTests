@@ -35,7 +35,7 @@ public class CollapsingToolbarActivity extends AppCompatActivity {
     private void dynamicToolbarColor() {
 
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
-                R.drawable.profile_pic);
+                R.drawable.img1);
         Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
             @Override
             public void onGenerated(Palette palette) {
