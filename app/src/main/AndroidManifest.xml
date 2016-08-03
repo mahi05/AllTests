@@ -1,6 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mahii.alltests">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".app.AppController"
         android:allowBackup="true"
@@ -15,7 +18,11 @@
         <activity
             android:name=".SubStringsDemo"
             android:configChanges="orientation|screenSize|keyboardHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".EasyGovLoginUsingVolley">
 
@@ -39,16 +46,10 @@
         </activity>
 
         <activity android:name=".AllListViewsDemos.EasyGovLikeListViewDemo">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".AllListViewsDemos.EasyGovLikeListViewDemo2">
 
         </activity>
+
+        <activity android:name=".AllListViewsDemos.EasyGovLikeListViewDemo2"/>
 
     </application>
 

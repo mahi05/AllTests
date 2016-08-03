@@ -14,4 +14,7 @@
         <item>Cylindrical</item>
     </string-array>
 
+    <string name="label_email">PdfTest</string>
+    <string name="label_preview">Preview</string>
+    <string name="label_cancel">Cancel</string>
 </resources>
