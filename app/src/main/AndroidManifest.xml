@@ -12,44 +12,34 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity">
-
-        </activity>
-        <activity
-            android:name=".SubStringsDemo"
-            android:configChanges="orientation|screenSize|keyboardHidden">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".EasyGovLoginUsingVolley">
 
-        </activity>
+        <activity android:name=".MainActivity"/>
+        <activity
+            android:name=".SubStringsDemo"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".EasyGovLoginUsingVolley"/>
         <activity
             android:name=".ViewPagerDecentBanner"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".CollapsingToolbarActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity android:name=".WebViewActivity">
-
-        </activity>
-
-        <activity android:name=".ProductView.ProductViewActivity">
-
-        </activity>
-
-        <activity android:name=".AllListViewsDemos.EasyGovLikeListViewDemo">
-
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".WebViewActivity"/>
+        <activity android:name=".ProductView.ProductViewActivity"/>
+        <activity android:name=".AllListViewsDemos.EasyGovLikeListViewDemo"/>
         <activity android:name=".AllListViewsDemos.EasyGovLikeListViewDemo2"/>
+        <activity android:name=".CameraTest.ShowImageActivity"/>
+        <activity android:name=".CameraTest.CameraMainActivity"/>
+        <activity android:name=".CameraTest.ChooseImageFromGallery">
+
+        </activity>
 
     </application>
 
