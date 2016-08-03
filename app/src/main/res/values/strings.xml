@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">AllTest</string>
+    <string name="default_loading">Loading…</string>
+
+    <string name="text_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consectetur diam id aliquam scelerisque. Donec ultrices lacus vel </string>
+
+    <string name="user_name">MaHiii</string>
+
+    <string name="spinner_prompt">Select the panorama type</string>
+    <string-array name="panorama_types">
+        <item>Cubic</item>
+        <item>Spherical2</item>
+        <item>Spherical</item>
+        <item>Cylindrical</item>
+    </string-array>
+
+</resources>

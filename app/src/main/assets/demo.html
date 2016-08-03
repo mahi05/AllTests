@@ -1,0 +1,68 @@
+<html>
+<head>
+    <style>
+        p{
+        background:#33b5e5;
+        height:200px;
+        width:300px;
+        text-align:center;
+        font-size:35px;
+        }
+        #myElement{
+        background:#ffbb00;
+        height:100px;
+        width:300px;
+        text-align:center;
+        font-size:35px;
+        }
+        .red-cell {
+        background: #F00; /* Or some other color */
+        }
+
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!--<script type="text/javascript">
+
+        var myEl = document.getElementById('myElement');
+
+        myEl.addEventListener('click', function() {
+            alert('Hello world');
+            document.getElementById('myElement').style.backgroundColor = "black";
+        }, true);
+
+        var element = document.getElementById('myElement');
+        element.onclick = function () { document.getElementById('myElement').style.backgroundColor = "black"; };
+
+    </script>-->
+
+</head>
+<body>
+
+<table id="myElement" >
+
+    <tr>
+        <td>
+            +91-8866046925
+        </td>
+    </tr>
+
+</table>
+
+<P>+91-8866046925</P>
+
+<script type="text/javascript">
+
+
+    $( function() {
+      $('table').click( function() {
+        $(this).toggleClass("red-cell");
+      } );
+    } );
+
+
+</script>
+
+</body>
+</html>
