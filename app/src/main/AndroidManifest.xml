@@ -37,9 +37,7 @@
         <activity android:name=".AllListViewsDemos.EasyGovLikeListViewDemo2"/>
         <activity android:name=".CameraTest.ShowImageActivity"/>
         <activity android:name=".CameraTest.CameraMainActivity"/>
-        <activity android:name=".CameraTest.ChooseImageFromGallery">
-
-        </activity>
+        <activity android:name=".CameraTest.ChooseImageFromGallery"/>
 
     </application>
 
