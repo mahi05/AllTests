@@ -30,10 +30,8 @@ public class ChooseImageFromGallery extends AppCompatActivity {
         selectImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(i, ACTIVITY_SELECT_IMAGE);
-
             }
         });
 
@@ -52,6 +50,6 @@ public class ChooseImageFromGallery extends AppCompatActivity {
             }
             displayImage.setImageBitmap(BitmapFactory.decodeStream(is));
         }
-
     }
+
 }
