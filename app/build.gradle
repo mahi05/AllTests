@@ -34,4 +34,5 @@ dependencies {
     compile 'com.mikepenz:fontawesome-typeface:4.6.0.1@aar' // for using font icons
     compile 'com.mikepenz:weather-icons-typeface:2.0.10.1@aar' // for using font icons
     compile 'com.cleveroad:slidingtutorial:0.9.5' // for using introduction view
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.1.17' // for gif file loading
 }

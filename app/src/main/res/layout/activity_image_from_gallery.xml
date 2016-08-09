@@ -15,10 +15,17 @@
         android:text="Choose Image" />
 
     <ImageView
+        android:layout_gravity="center"
         android:id="@+id/displayImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="10dp"
         android:contentDescription="@string/app_name" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/pokeman"
+        />
 
 </LinearLayout>
