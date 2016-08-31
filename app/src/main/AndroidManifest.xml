@@ -38,6 +38,7 @@
         <activity android:name=".CameraTest.ShowImageActivity"/>
         <activity android:name=".CameraTest.CameraMainActivity"/>
         <activity android:name=".CameraTest.ChooseImageFromGallery"/>
+        <activity android:name=".google_location.LocationCallActivity"/>
 
     </application>
 
