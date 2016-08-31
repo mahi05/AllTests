@@ -1,0 +1,136 @@
+package com.mahii.alltests.google_location;
+
+import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+public class LocationCallActivity extends AppCompatActivity {
+
+    String addressToDisplay = "";
+    String types;
+    String areaPost = "", postalPost = "";
+
+    private CountDownTimer location_timer;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        location_timer = new CountDownTimer(5000, 1000) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                try {
+                    getZipCode(34.2049351, -118.4655262);
+                    location_timer.start();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        location_timer.start();
+
+        String mainString = "abc, bcd, cde";
+        String[] split_text = mainString.split(",");
+        Log.e("Split", split_text[1].substring(1));
+
+    }
+
+    public void getZipCode(double lat, double lon) {
+
+        addressToDisplay = "";
+        areaPost = "";
+        postalPost = "";
+
+        CallService service = new CallService(
+                LocationCallActivity.this,
+                "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lon + "&sensor=true", "GET",
+                new CallService.OnServiceCall() {
+
+                    @Override
+                    public void onServiceCall(String response) {
+
+                        try {
+
+                            JSONObject mainObj = new JSONObject(response);
+                            JSONArray mainArray = mainObj.getJSONArray("results");
+                            JSONObject innerJObj = mainArray.getJSONObject(0);
+                            JSONArray addArray = innerJObj.getJSONArray("address_components");
+
+                            for (int i = 0; i < addArray.length(); i++) {
+
+                                JSONObject innerAddObj1 = addArray.getJSONObject(i);
+                                JSONArray typeArray = innerAddObj1.getJSONArray("types");
+
+                                for (int j = 0; j < typeArray.length(); j++) {
+
+                                    types = typeArray.getString(j);
+
+                                    String area = "", postalCode = "";
+
+                                    if (types.equals("neighborhood") || types.equals("political")) {
+
+                                        area = innerAddObj1.getString("long_name");
+
+                                        if (areaPost.equals("")) {
+                                            addressToDisplay = addressToDisplay + area;
+                                            Log.e("AddDisplay", addressToDisplay);
+                                        }
+                                        areaPost = area;
+
+                                    } else if (types.equals("postal_code")) {
+
+                                        postalCode = innerAddObj1.getString("long_name");
+
+                                        if (postalPost.equals("")) {
+                                            addressToDisplay = addressToDisplay + ", " + postalCode;
+                                            Log.e("AddDisplay", addressToDisplay);
+                                        }
+                                        postalPost = postalCode;
+                                    }
+                                }
+
+                            }
+
+
+                            /*if (TextUtils.isEmpty(long_name) == false || !long_name.equals(null) || long_name.length() > 0 || long_name != "") {
+                                if (Type.equalsIgnoreCase("street_number")) {
+                                    Address1 = long_name + " ";
+                                } else if (Type.equalsIgnoreCase("route")) {
+                                    Address1 = Address1 + long_name;
+                                } else if (Type.equalsIgnoreCase("sublocality")) {
+                                    Address2 = long_name;
+                                } else if (Type.equalsIgnoreCase("locality")) {
+                                    // Address2 = Address2 + long_name + ", ";
+                                    City = long_name;
+                                } else if (Type.equalsIgnoreCase("administrative_area_level_2")) {
+                                    County = long_name;
+                                } else if (Type.equalsIgnoreCase("administrative_area_level_1")) {
+                                    State = long_name;
+                                } else if (Type.equalsIgnoreCase("country")) {
+                                    Country = long_name;
+                                } else if (Type.equalsIgnoreCase("postal_code")) {
+                                    PIN = long_name;
+                                }
+                            }*/
+
+
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+                });
+        service.execute();
+
+    }
+
+}
