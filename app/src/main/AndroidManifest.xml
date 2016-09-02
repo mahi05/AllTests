@@ -3,6 +3,11 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".app.AppController"
@@ -39,6 +44,8 @@
         <activity android:name=".CameraTest.CameraMainActivity"/>
         <activity android:name=".CameraTest.ChooseImageFromGallery"/>
         <activity android:name=".google_location.LocationCallActivity"/>
+        <activity android:name=".MotionDetection.SensorsActivity"/>
+        <activity android:name=".MotionDetection.MotionDetectionActivity"/>
 
     </application>
 
