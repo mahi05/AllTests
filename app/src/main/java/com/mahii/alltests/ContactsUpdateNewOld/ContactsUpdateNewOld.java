@@ -2,12 +2,19 @@ package com.mahii.alltests.ContactsUpdateNewOld;
 
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.TelephonyManager;
 import android.util.Log;
+
+import com.google.i18n.phonenumbers.NumberParseException;
+import com.google.i18n.phonenumbers.PhoneNumberUtil;
+import com.google.i18n.phonenumbers.Phonenumber;
+import com.mahii.alltests.R;
 
 import java.util.ArrayList;
 
@@ -60,7 +67,35 @@ public class ContactsUpdateNewOld extends AppCompatActivity {
             }
         }
 
-        Log.e("needToUpload", "" + needToUpload.size());
+        /*Log.e("needToUpload", "" + needToUpload.size());
+
+        TelephoneNumberCanonicalizer german = new TelephoneNumberCanonicalizer(getCountryDialCode());
+        Log.e("usersCountryISOCode", "" + german.canonicalize("8866469250"));*/
+
+        /* Using Phone Util Library */
+        String swissNumberStr = "8866046925";
+        PhoneNumberUtil phoneUtil = PhoneNumberUtil.getInstance();
+        TelephonyManager telephonyMngr = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
+        String countryId = telephonyMngr.getSimCountryIso().toUpperCase();
+        try {
+            Phonenumber.PhoneNumber numberProto = phoneUtil.parse(swissNumberStr, countryId);
+            phoneUtil.format(numberProto, PhoneNumberUtil.PhoneNumberFormat.E164);
+            Log.e("Number", phoneUtil.format(numberProto, PhoneNumberUtil.PhoneNumberFormat.E164));
+
+        } catch (NumberParseException e) {
+            System.err.println("NumberParseException was thrown: " + e.toString());
+        }
+
+        /* Using Array from strings file */
+        try {
+            // phone must begin with '+'
+            Phonenumber.PhoneNumber numberProto = phoneUtil.parse("+919876543210", "in");
+            int countryCode = numberProto.getCountryCode();
+            Log.e("CountryCode", "" + countryCode);
+
+        } catch (NumberParseException e) {
+            System.err.println("NumberParseException was thrown: " + e.toString());
+        }
 
     }
 
@@ -138,6 +173,28 @@ public class ContactsUpdateNewOld extends AppCompatActivity {
         } catch (Exception ex) {
             Log.e("Contacts", ex.getMessage());
         }
+    }
+
+    public String getCountryDialCode() {
+
+        String contryId = null;
+        String contryDialCode = null;
+
+        TelephonyManager telephonyMngr = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
+
+        contryId = telephonyMngr.getSimCountryIso().toUpperCase();
+        String[] arrCountryCode = getResources().getStringArray(R.array.DialingCountryCode);
+
+        for (int i = 0; i < arrCountryCode.length; i++) {
+
+            String[] arrDial = arrCountryCode[i].split(",");
+
+            if (arrDial[1].trim().equals(contryId.trim())) {
+                contryDialCode = arrDial[0];
+                break;
+            }
+        }
+        return contryDialCode;
     }
 
 }
