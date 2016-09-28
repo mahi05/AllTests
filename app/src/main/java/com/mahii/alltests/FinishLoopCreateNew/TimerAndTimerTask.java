@@ -63,7 +63,7 @@ public class TimerAndTimerTask extends AppCompatActivity {
 
     private void getAds() {
 
-        CallService service = new CallService(TimerAndTimerTask.this, "http://tabride.com/backend/public/api/get_ads?zipcode=395004"/* + lastZip*/, "POST", new CallService.OnServiceCall() {
+        CallService service = new CallService(TimerAndTimerTask.this, "See gst file"/* + lastZip*/, "POST", new CallService.OnServiceCall() {
             @Override
             public void onServiceCall(String response) {
                 try {
