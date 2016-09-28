@@ -61,7 +61,7 @@ public class TabRideActivity extends AppCompatActivity implements MediaPlayer.On
 
     private void getAds() {
 
-        CallService service = new CallService(TabRideActivity.this, "http://tabride.com/backend/public/api/get_ads?zipcode=395004", "POST", new CallService.OnServiceCall() {
+        CallService service = new CallService(TabRideActivity.this, "See gst file", "POST", new CallService.OnServiceCall() {
             @Override
             public void onServiceCall(String response) {
                 try {
