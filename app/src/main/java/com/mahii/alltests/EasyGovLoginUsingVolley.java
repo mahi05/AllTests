@@ -33,7 +33,7 @@ public class EasyGovLoginUsingVolley extends AppCompatActivity {
     Button btn_login;
     FoldAnimation foldAnimation;
 
-    String url = "http://neuweg.co.in/pradeep/easygov/public/api/users/store";
+    String url = "See gst file";
     ProgressDialog progressDialog;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,7 @@ public class EasyGovLoginUsingVolley extends AppCompatActivity {
         hiddenPanel3.startAnimation(bottomUp3);
         hiddenPanel3.setVisibility(View.VISIBLE);*/
 
-        Animation bottomUp = AnimationUtils.loadAnimation(EasyGovLoginUsingVolley.this, R.anim.bottom_to_up4);
+        /*Animation bottomUp = AnimationUtils.loadAnimation(EasyGovLoginUsingVolley.this, R.anim.bottom_to_up4);
         LinearLayout hiddenPanel = (LinearLayout) findViewById(R.id.middlePart);
         hiddenPanel.startAnimation(bottomUp);
         hiddenPanel.setVisibility(View.VISIBLE);
@@ -58,7 +58,6 @@ public class EasyGovLoginUsingVolley extends AppCompatActivity {
         LinearLayout hiddenPanel2 = (LinearLayout) findViewById(R.id.lastPart);
         hiddenPanel2.startAnimation(bottomUp2);
         hiddenPanel2.setVisibility(View.VISIBLE);
-
 
         Animation tv11 = AnimationUtils.loadAnimation(EasyGovLoginUsingVolley.this, R.anim.bottom_to_up3);
         tv_email.startAnimation(tv11);
@@ -70,7 +69,7 @@ public class EasyGovLoginUsingVolley extends AppCompatActivity {
 
         Animation b11 = AnimationUtils.loadAnimation(EasyGovLoginUsingVolley.this, R.anim.bottom_to_up2);
         btn_login.startAnimation(b11);
-        btn_login.setVisibility(View.VISIBLE);
+        btn_login.setVisibility(View.VISIBLE);*/
 
         /*BounceInterpolator bounceInterpolator = new BounceInterpolator();
 
@@ -100,9 +99,11 @@ public class EasyGovLoginUsingVolley extends AppCompatActivity {
 
         Map<String, Object> jsonParams = new HashMap<>();
 
-        jsonParams.put("email", tv_email.getText().toString()); // Parameter 1
-        jsonParams.put("password", tv_pw.getText().toString()); // Parameter 2
-        jsonParams.put("device_token", "1234567890"); // Parameter 3
+        //jsonParams.put("email", tv_email.getText().toString()); // Parameter 1
+        //jsonParams.put("password", tv_pw.getText().toString()); // Parameter 2
+        //jsonParams.put("device_token", "1234567890"); // Parameter 3
+
+
 
         RequestQueue queue = Volley.newRequestQueue(EasyGovLoginUsingVolley.this);
 
