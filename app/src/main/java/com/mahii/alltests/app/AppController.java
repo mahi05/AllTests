@@ -1,6 +1,7 @@
 package com.mahii.alltests.app;
 
 import android.app.Application;
+import android.content.Context;
 import android.text.TextUtils;
 
 import com.android.volley.Request;
@@ -13,12 +14,17 @@ public class AppController extends Application {
  
     private RequestQueue mRequestQueue;
  
-    private static AppController mInstance;
+    public static AppController mInstance;
  
     @Override
     public void onCreate() {
         super.onCreate();
         mInstance = this;
+    }
+
+    @Override
+    public Context getApplicationContext() {
+        return super.getApplicationContext();
     }
  
     public static synchronized AppController getInstance() {
