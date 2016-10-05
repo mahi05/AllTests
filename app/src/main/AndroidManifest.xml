@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mahii.alltests">
 
@@ -8,6 +9,8 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:name=".app.AppController"
@@ -16,7 +19,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,29 +26,40 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".SubStringsDemo"
-            android:configChanges="orientation|screenSize|keyboardHidden"/>
-        <activity android:name=".EasyGovLoginUsingVolley"/>
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity android:name=".EasyGovLoginUsingVolley" />
         <activity
             android:name=".ViewPagerDecentBanner"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CollapsingToolbarActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".WebViewActivity"/>
-        <activity android:name=".ProductView.ProductViewActivity"/>
-        <activity android:name=".AllListViewsDemos.EasyGovLikeListViewDemo"/>
-        <activity android:name=".AllListViewsDemos.EasyGovLikeListViewDemo2"/>
-        <activity android:name=".CameraTest.ShowImageActivity"/>
-        <activity android:name=".CameraTest.CameraMainActivity"/>
-        <activity android:name=".CameraTest.ChooseImageFromGallery"/>
-        <activity android:name=".google_location.LocationCallActivity"/>
-        <activity android:name=".MotionDetection.SensorsActivity"/>
-        <activity android:name=".MotionDetection.MotionDetectionActivity"/>
-
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".WebViewActivity" />
+        <activity android:name=".ProductView.ProductViewActivity" />
+        <activity android:name=".AllListViewsDemos.EasyGovLikeListViewDemo" />
+        <activity android:name=".AllListViewsDemos.EasyGovLikeListViewDemo2" />
+        <activity android:name=".CameraTest.ShowImageActivity" />
+        <activity android:name=".CameraTest.CameraMainActivity" />
+        <activity android:name=".CameraTest.ChooseImageFromGallery" />
+        <activity android:name=".google_location.LocationCallActivity" />
+        <activity android:name=".MotionDetection.SensorsActivity" />
+        <activity android:name=".MotionDetection.MotionDetectionActivity" />
+        <activity android:name=".FinishLoopCreateNew.FinishAndCreateActivity" />
+        <activity android:name=".FinishLoopCreateNew.TabRideActivity" />
+        <activity android:name=".FinishLoopCreateNew.NewTabRideActivity" />
+        <activity android:name=".FinishLoopCreateNew.BrightnessDemo" />
+        <activity android:name=".FinishLoopCreateNew.TimerAndTimerTask" />
+        <activity android:name=".FinishLoopCreateNew.Downloader" />
+        <activity android:name=".ContactsUpdateNewOld.ContactsUpdateNewOld" />
+        <activity android:name=".FinishLoopCreateNew.IonDownloader" />
+        <activity android:name=".UnicodeEncodeDecode.UnicodeEncodeDecodeActivity" />
+        <activity android:name=".JUnitTesting.JUnitTestingActivity" />
+        <activity android:name=".JUnitTesting.BasicEspressoSample.ShowTextActivity" />
+        <activity android:name=".JUnitTesting.BasicEspressoSample.MainActivityEspresso" />
+        <activity android:name=".RestartAppAfterCrash.RestartAppAfterCrash" />
     </application>
 
 </manifest>
