@@ -1,23 +1,23 @@
 machine:
-	environment:
-		ANDROID_HOME: /home/ubuntu/android
-	java:
-		version: oraclejdk8
+environment:
+ANDROID_HOME: /home/ubuntu/android
+java:
+version: oraclejdk8
 
 dependencies:
-	cache_directories:
-		- ~/.android
-		- ~/android
+cache_directories:
+- ~/.android
+- ~/android
 override:
-	- (echo "Downloading Android SDK v19 now!")
-	- source scripts/environmentSetup.sh && getAndroidSDK
+- (echo "Downloading Android SDK v19 now!")
+- source scripts/environmentSetup.sh && getAndroidSDK
 
 test:
 pre:
-	- $ANDROID_HOME/tools/emulator -avd testAVD -no-skin -no-audio -no-window
-	- ./gradlew clean assembleDebug
-	- ./gradlew assembleDebugTest
-	- source scripts/environmentSetup.sh && waitForAVD
+- $ANDROID_HOME/tools/emulator -avd testAVD -no-skin -no-audio -no-window
+- ./gradlew clean assembleDebug
+- ./gradlew assembleDebugTest
+- source scripts/environmentSetup.sh && waitForAVD
 override:
-	- (echo "Running JUnit tests!")
-	- ./gradlew connectedAndroidTest
+- (echo "Running JUnit tests!")
+- ./gradlew connectedAndroidTest
