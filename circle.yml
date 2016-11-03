@@ -2,7 +2,7 @@
 machine:
 
   timezone:
-    Asia/Mumbai # Set the timezone
+    America/Los_Angeles # Set the timezone
 
   # Version of ruby to use
   ruby:
