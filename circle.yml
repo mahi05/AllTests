@@ -1,21 +1,16 @@
-#
-# Build configuration for Circle CI
-#
-
-general:
-    artifacts:
-        - /Users/MyWindows/Desktop/Android/Mahesh/Projects/Gofar/app/build/outputs/apk
-
-machine:
-    environment:
-        ANDROID_HOME: /Users/MyWindows/Desktop/sdk
-
 dependencies:
-    override:
-        - echo y | android update sdk --no-ui --all --filter tools,platform-tools,build-tools-21.1.2,android-21,extra-google-m2repository,extra-google-google_play_services,extra-android-support
-        - ./gradlew dependencies
-
+  post:
+    - rm -r ~/.gradle
 test:
-    override:
-        - (./gradlew assemble):
-            timeout: 360
+  override:
+    - mksdcard -l e 512M mysdcard.img
+    - emulator -avd circleci-android22 -no-audio -no-window -no-boot-anim -sdcard mysdcard.img:
+        background: true
+        parallel: true
+    - circle-android wait-for-boot
+    - adb shell input keyevent 82:
+        background: true
+    - ADB_INSTALL_TIMEOUT=10 ./gradlew clean spoon --stacktrace --info
+    - test ! -d app/build/outputs || cp -r app/build/outputs $CIRCLE_ARTIFACTS
+    - test ! -d app/build/reports || cp -r app/build/reports $CIRCLE_TEST_REPORTS
+    - test ! -d app/build/spoon || cp -r app/build/spoon $CIRCLE_TEST_REPORTS
