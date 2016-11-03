@@ -1,16 +1,7 @@
 dependencies:
   post:
     - rm -r ~/.gradle
+
 test:
   override:
-    - mksdcard -l e 512M mysdcard.img
-    - emulator -avd circleci-android22 -no-audio -no-window -no-boot-anim -sdcard mysdcard.img:
-        background: true
-        parallel: true
-    - circle-android wait-for-boot
-    - adb shell input keyevent 82:
-        background: true
-    - ADB_INSTALL_TIMEOUT=10 ./gradlew clean spoon --stacktrace --info
-    - test ! -d app/build/outputs || cp -r app/build/outputs $CIRCLE_ARTIFACTS
-    - test ! -d app/build/reports || cp -r app/build/reports $CIRCLE_TEST_REPORTS
-    - test ! -d app/build/spoon || cp -r app/build/spoon $CIRCLE_TEST_REPORTS
+    - RAILS_ENV=test bundle exec rspec -r rspec_junit_formatter --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec/junit.xml
